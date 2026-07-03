@@ -1,30 +1,31 @@
 The structure of the project looks like:
+```text
 summerproject/
-
-├── src/
 │
-├── main.cpp
-├── Employee.cpp
-├── Employee.h
-├── Attendance.cpp
-├── Attendance.h
-├── LeaveManager.cpp
-├── LeaveManager.h
-├── Payroll.cpp
-├── Payroll.h
-├── Login.cpp
-├── Login.h
-├── PayrollHistory.cpp
-├── PayrollHistory.h
-└── Utilities.h
-
-
+├── src/
+│   ├── main.cpp
+│   ├── Employee.cpp
+│   ├── Employee.h
+│   ├── Attendance.cpp
+│   ├── Attendance.h
+│   ├── LeaveManager.cpp
+│   ├── LeaveManager.h
+│   ├── Payroll.cpp
+│   ├── Payroll.h
+│   ├── Login.cpp
+│   ├── Login.h
+│   ├── PayrollHistory.cpp
+│   ├── PayrollHistory.h
+│   └── Utilities.h
+│
 └── data/
     ├── employees.txt
     ├── attendance.txt
     ├── leaves.txt
     ├── payroll.txt
     └── payroll_history.txt
+```
+
 
 
 The console application can perform operations such as :
