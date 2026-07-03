@@ -46,3 +46,16 @@ The console application can perform operations such as :
 14. Search Employees by Designation
 15. Apply Salary Increment
 16. Exit System
+
+This project can easily be run on CMD.
+Steps:
+1.Go to the folder and open the terminal.
+2.Compile it using the command :
+g++ -o EmployeePayrollSystem.exe main.cpp src/Employee.cpp src/Attendance.cpp src/LeaveManager.cpp src/Payroll.cpp src/Login.cpp src/PayrollHistory.cpp -static-libgcc -g3
+3.Finally run the command:
+.\EmployeePayrollSystem.exe
+
+
+Here in this project the login credentials are:
+Username: admin
+Password: admin123
