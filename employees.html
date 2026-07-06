@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employees - Payroll Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav">
+      <div class="brand"><span>Tech Solutions</span><strong>Payroll System</strong></div>
+      <nav class="nav-links">
+        <a class="nav-link" href="index.html">Dashboard</a>
+        <a class="nav-link active" href="employees.html">Employees</a>
+        <a class="nav-link" href="attendance-leaves.html">Attendance & Leaves</a>
+        <a class="nav-link" href="payroll.html">Payroll</a>
+        <a class="nav-link" href="storage.html">Stored Files</a>
+        <a class="nav-link" href="source.html">Source Map</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Employee Records</h1>
+          <p class="lede">Add, view, search, update, delete, list by department/designation, and apply salary increments.</p>
+        </div>
+        <button id="resetDemo" class="secondary">Reset Demo Data</button>
+      </div>
+
+      <div id="employeeMessage" class="notice">Employee data is visible below and mirrored into employees.txt format.</div>
+
+      <section class="panel" style="margin-top:18px">
+        <h2>Add Employee</h2>
+        <form id="addEmployeeForm" style="margin-top:14px">
+          <div class="form-grid">
+            <div class="field"><label>Employee ID</label><input name="employeeID" required placeholder="EMP004"></div>
+            <div class="field"><label>Name</label><input name="name" required></div>
+            <div class="field"><label>Age</label><input name="age" required type="number" min="1"></div>
+            <div class="field"><label>Gender</label><input name="gender" required></div>
+            <div class="field"><label>Department</label><input name="department" required></div>
+            <div class="field"><label>Designation</label><input name="designation" required></div>
+            <div class="field"><label>Date of Joining</label><input name="joiningDate" required placeholder="01-07-2026"></div>
+            <div class="field"><label>Phone</label><input name="phone" required></div>
+            <div class="field"><label>Email</label><input name="email" required type="email"></div>
+            <div class="field"><label>Basic Salary</label><input name="basicSalary" required type="number" min="0"></div>
+            <div class="field"><label>HRA</label><input name="hra" required type="number" min="0"></div>
+            <div class="field"><label>DA</label><input name="da" required type="number" min="0"></div>
+            <div class="field"><label>Bonus</label><input name="bonus" required type="number" min="0"></div>
+            <div class="field"><label>Overtime Rate</label><input name="overtimeRate" required type="number" min="0"></div>
+            <div class="field"><label>PF</label><input name="pf" required type="number" min="0"></div>
+            <div class="field"><label>Tax</label><input name="tax" required type="number" min="0"></div>
+            <div class="field"><label>Insurance</label><input name="insurance" required type="number" min="0"></div>
+          </div>
+          <div class="actions"><button type="submit">Add Employee</button></div>
+        </form>
+      </section>
+
+      <section class="panel" style="margin-top:18px">
+        <h2>View All Employees</h2>
+        <div class="table-wrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Designation</th><th>Salary</th><th>Email</th></tr></thead>
+            <tbody id="employeeRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <h2>Search Employee</h2>
+          <form id="searchEmployeeForm" style="margin-top:14px">
+            <div class="field"><label>Employee ID</label><input name="employeeID" required placeholder="EMP001"></div>
+            <button type="submit">Search</button>
+          </form>
+          <div id="searchResult" style="margin-top:14px"></div>
+        </div>
+        <div class="panel">
+          <h2>Update Employee</h2>
+          <form id="updateEmployeeForm" style="margin-top:14px">
+            <div class="field"><label>Employee ID</label><select id="updateEmployeeSelect" name="employeeID"></select></div>
+            <div class="field"><label>New Name</label><input id="updateName" name="name" required></div>
+            <div class="field"><label>New Department</label><input id="updateDepartment" name="department" required></div>
+            <div class="field"><label>New Designation</label><input id="updateDesignation" name="designation" required></div>
+            <button type="submit">Update Employee</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <h2>Delete Employee</h2>
+          <form id="deleteEmployeeForm" style="margin-top:14px">
+            <div class="field"><label>Employee ID</label><select id="deleteEmployeeSelect" name="employeeID"></select></div>
+            <button class="danger" type="submit">Delete Employee</button>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Salary Increment</h2>
+          <form id="incrementForm" style="margin-top:14px">
+            <div class="field"><label>Employee ID</label><select id="incrementEmployeeSelect" name="employeeID"></select></div>
+            <div class="field"><label>Increment Percentage</label><input name="percent" required type="number" min="0" step="0.01"></div>
+            <button class="success" type="submit">Apply Increment</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <h2>Search by Department</h2>
+          <form id="departmentSearchForm" style="margin-top:14px">
+            <div class="field"><label>Department</label><input name="department" required placeholder="Engineering"></div>
+            <button type="submit">Search Department</button>
+          </form>
+          <div id="departmentResult" class="notice" style="margin-top:14px"></div>
+        </div>
+        <div class="panel">
+          <h2>Search by Designation</h2>
+          <form id="designationSearchForm" style="margin-top:14px">
+            <div class="field"><label>Designation</label><input name="designation" required placeholder="Software Developer"></div>
+            <button type="submit">Search Designation</button>
+          </form>
+          <div id="designationResult" class="notice" style="margin-top:14px"></div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:18px">
+        <h2>employees.txt</h2>
+        <pre id="employeeStorage"></pre>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
