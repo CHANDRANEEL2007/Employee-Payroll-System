@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payroll - Payroll Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav">
+      <div class="brand"><span>Tech Solutions</span><strong>Payroll System</strong></div>
+      <nav class="nav-links">
+        <a class="nav-link" href="index.html">Dashboard</a>
+        <a class="nav-link" href="employees.html">Employees</a>
+        <a class="nav-link" href="attendance-leaves.html">Attendance & Leaves</a>
+        <a class="nav-link active" href="payroll.html">Payroll</a>
+        <a class="nav-link" href="storage.html">Stored Files</a>
+        <a class="nav-link" href="source.html">Source Map</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Monthly Payroll</h1>
+          <p class="lede">Generate payslips using the project formula: gross salary, attendance deduction, PF, tax, insurance, and net pay.</p>
+        </div>
+      </div>
+      <div id="payrollMessage" class="notice">Choose an employee with attendance, enter a month, and process payroll.</div>
+
+      <section class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <h2>Process Monthly Payroll</h2>
+          <form id="payrollForm" style="margin-top:14px">
+            <div class="field"><label>Employee ID</label><select id="payrollEmployeeSelect" name="employeeID"></select></div>
+            <div class="field"><label>Payroll Month</label><input name="month" required value="July-2026"></div>
+            <button type="submit">Generate Payslip</button>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Generated Payslip</h2>
+          <pre id="payslipOutput" class="receipt"></pre>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:18px">
+        <h2>Payroll History</h2>
+        <div class="table-wrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Month</th><th>Gross</th><th>Deduction</th><th>Net</th></tr></thead>
+            <tbody id="historyRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top:18px">
+        <div class="tabs">
+          <button class="tab active" data-file-tab="payroll" type="button">payroll.txt</button>
+          <button class="tab" data-file-tab="history" type="button">payroll_history.txt</button>
+        </div>
+        <pre id="payrollStorage"></pre>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

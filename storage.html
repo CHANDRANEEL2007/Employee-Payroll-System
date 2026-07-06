@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stored Files - Payroll Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav">
+      <div class="brand"><span>Tech Solutions</span><strong>Payroll System</strong></div>
+      <nav class="nav-links">
+        <a class="nav-link" href="index.html">Dashboard</a>
+        <a class="nav-link" href="employees.html">Employees</a>
+        <a class="nav-link" href="attendance-leaves.html">Attendance & Leaves</a>
+        <a class="nav-link" href="payroll.html">Payroll</a>
+        <a class="nav-link active" href="storage.html">Stored Files</a>
+        <a class="nav-link" href="source.html">Source Map</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Stored File View</h1>
+          <p class="lede">The panels below mirror the exact text records used by the terminal version in the `data` folder.</p>
+        </div>
+      </div>
+      <section class="panel">
+        <div class="tabs">
+          <button class="tab active" data-file-tab="employees" type="button">employees.txt</button>
+          <button class="tab" data-file-tab="attendance" type="button">attendance.txt</button>
+          <button class="tab" data-file-tab="leaves" type="button">leaves.txt</button>
+          <button class="tab" data-file-tab="payroll" type="button">payroll.txt</button>
+          <button class="tab" data-file-tab="history" type="button">payroll_history.txt</button>
+        </div>
+        <pre id="storagePreview"></pre>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
